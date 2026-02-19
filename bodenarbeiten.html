@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Baumeister NRW | Riva Endüstri Tesisi</title>
+    <title>Baumeister NRW</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,10 +29,10 @@
         </button>
         <nav class="menu" id="site-menu">
           <a href="index.html">Startseite</a>
-          <a class="active" href="projeler.html">Projekte</a>
-          <a href="hizmetler.html">Dienstleistungen</a>
-          <a href="hakkimizda.html">Über uns</a>
-          <a href="iletisim.html">Kontakt</a>
+          <a class="active" href="projekte.html">Projekte</a>
+          <a href="leistungen.html">Dienstleistungen</a>
+          <a href="uberuns.html">Über uns</a>
+          <a href="contact.html">Kontakt</a>
         </nav>
       </div>
     </header>
@@ -57,26 +57,36 @@
             aria-label="Zemin proje görselleri"
           >
             <img
+              loading="lazy"
+              decoding="async"
               class="project-slide is-active"
               src="img/zemin-img/WhatsApp%20Image%202026-02-19%20at%2022.46.13.jpeg"
               alt="Zemin uygulama görseli 1"
             />
             <img
+              loading="lazy"
+              decoding="async"
               class="project-slide"
               src="img/zemin-img/WhatsApp%20Image%202026-02-19%20at%2022.49.53.jpeg"
               alt="Zemin uygulama görseli 2"
             />
             <img
+              loading="lazy"
+              decoding="async"
               class="project-slide"
               src="img/zemin-img/WhatsApp%20Image%202026-02-19%20at%2022.50.20.jpeg"
               alt="Zemin uygulama görseli 3"
             />
             <img
+              loading="lazy"
+              decoding="async"
               class="project-slide"
               src="img/zemin-img/WhatsApp%20Image%202026-02-19%20at%2022.50.47.jpeg"
               alt="Zemin uygulama görseli 4"
             />
             <img
+              loading="lazy"
+              decoding="async"
               class="project-slide"
               src="img/zemin-img/WhatsApp%20Image%202026-02-19%20at%2022.51.13.jpeg"
               alt="Zemin uygulama görseli 5"
@@ -96,7 +106,7 @@
                 ein harmonisches Gesamtbild in jedem Raum.
               </p>
             </ul>
-            <a class="btn-outline" href="projeler.html">Projekte Zurück</a>
+            <a class="btn-outline" href="projekte.html">Projekte Zurück</a>
           </div>
         </div>
       </section>
@@ -137,70 +147,19 @@
                 ></path>
               </svg>
             </a>
-                   
-            </div>
+          </div>
         </div>
       </div>
       <div class="container footer-bottom">
         <p>© 2026 Baumeister NRW. Alle Rechte vorbehalten.</p>
       </div>
     </footer>
-    <script>
-      const menuToggle = document.querySelector(".menu-toggle");
-      const menu = document.getElementById("site-menu");
-      if (menuToggle && menu) {
-        const closeMenu = () => {
-          document.body.classList.remove("nav-open");
-          menuToggle.setAttribute("aria-expanded", "false");
-        };
-        menuToggle.addEventListener("click", () => {
-          const isOpen = document.body.classList.toggle("nav-open");
-          menuToggle.setAttribute("aria-expanded", String(isOpen));
-        });
-        menu
-          .querySelectorAll("a")
-          .forEach((link) => link.addEventListener("click", closeMenu));
-        document.addEventListener("click", (event) => {
-          const clickedOutside =
-            !menu.contains(event.target) && !menuToggle.contains(event.target);
-          if (document.body.classList.contains("nav-open") && clickedOutside)
-            closeMenu();
-        });
-        document.addEventListener("keydown", (event) => {
-          if (event.key === "Escape") closeMenu();
-        });
-        window.addEventListener("resize", () => {
-          if (window.innerWidth > 980) closeMenu();
-        });
-      }
-
-      const projectSliders = document.querySelectorAll(".project-slider");
-
-      projectSliders.forEach((slider) => {
-        const slides = slider.querySelectorAll(".project-slide");
-        const interval = Number(slider.dataset.interval) || 1000;
-
-        if (slides.length < 2) return;
-
-        let currentIndex = 0;
-
-        const nextSlide = () => {
-          slides[currentIndex].classList.remove("is-active");
-          currentIndex = (currentIndex + 1) % slides.length;
-          slides[currentIndex].classList.add("is-active");
-        };
-
-        let timer = setInterval(nextSlide, interval);
-
-        slider.addEventListener("mouseenter", () => {
-          clearInterval(timer);
-        });
-
-        slider.addEventListener("mouseleave", () => {
-          timer = setInterval(nextSlide, interval);
-        });
-      });
-    </script>
+    <script src="main.js" defer></script>
   </body>
 </html>
+
+
+
+
+
 
