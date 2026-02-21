@@ -897,3 +897,48 @@ main > section:nth-of-type(5) {
     min-height: 430px;
   }
 }
+
+@media (min-width: 681px) and (max-width: 980px) {
+  .featured-projects .projects {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  .featured-projects .project-card {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .featured-projects .project-thumb {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .featured-projects .project-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    transition: height 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .featured-projects .project-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(1.02);
+    transition:
+      opacity 0.6s ease,
+      transform 0.75s ease;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .featured-projects .project-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
